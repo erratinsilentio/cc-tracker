@@ -13,13 +13,19 @@ export enum Exercise {
   Handstand = "handstand",
 }
 
+export interface WorkoutExercise {
+  exercise: Exercise;
+  level: number;
+  repetitions: [number];
+}
+
 export interface Workout {
   id: string;
   dateCreated: string;
   dateDone: string;
   userId: string;
   series: number;
-  exercises: { name: Exercise; level: number; repetitions: [number] };
+  exercises: [WorkoutExercise];
 }
 
 export enum Paths {
