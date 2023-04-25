@@ -14,9 +14,10 @@ export enum Exercise {
 }
 
 export interface WorkoutExercise {
+  id: string;
   exercise: Exercise;
   level: number;
-  repetitions: [number];
+  repetitions: number[];
 }
 
 export interface Workout {
@@ -25,7 +26,7 @@ export interface Workout {
   dateDone: string;
   userId: string;
   series: number;
-  exercises: [WorkoutExercise];
+  exercises: WorkoutExercise[];
 }
 
 export enum Paths {
