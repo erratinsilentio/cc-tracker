@@ -4,7 +4,7 @@ import { Paths } from '../../../types/types.js';
 <template>
     <header class="header">
         <article class="logo">
-            CC TRACKER
+            ROUTINE
         </article>
         <article class="nav">
         <router-link :to="Paths.Home">Home</router-link>

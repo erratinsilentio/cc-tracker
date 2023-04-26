@@ -6,7 +6,7 @@ import { Paths } from '../../types/types';
     <section>
         <article class="hero">
             <p class="first">Track your bodyweight workouts</p>
-            <p class="second">With Convict Conditioning program</p>
+            <p class="second">With Recommended Routine program</p>
             <p class="third">
                 <router-link :to="Paths.Login">Login</router-link>
                 to start or
@@ -46,6 +46,7 @@ import { Paths } from '../../types/types';
 
     a{
         color: #0f766e;
+        font-size: 1.2rem;
     }
     a:hover{
         color: #14b8a6;
