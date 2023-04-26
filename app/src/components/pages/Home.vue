@@ -3,7 +3,7 @@ import { Paths } from '../../types/types';
 </script>
 
 <template>
-    <section class="home">
+    <section>
         <article class="hero">
             <p class="first">Track your bodyweight workouts</p>
             <p class="second">With Convict Conditioning program</p>

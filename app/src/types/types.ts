@@ -5,19 +5,22 @@ export interface User {
 }
 
 export enum Exercise {
-  Pushup = "pushup",
-  Squat = "squat",
-  Pullup = "pullup",
-  LegRaise = "leg raise",
-  Bridge = "bridge",
-  Handstand = "handstand",
+  Pushups = "Pushups",
+  Squats = "Squats",
+  Pullups = "Pullups",
+  Dips = "Dips",
+  Rows = "Rows",
+  Hinges = "Hinges",
+  AntiExtension = "Anti Extension",
+  AntiRotation = "Anti Rotation",
+  Extension = "Extension",
 }
 
 export interface WorkoutExercise {
   id: string;
   exercise: Exercise;
   level: number;
-  repetitions: number[];
+  repetitions: Exercise[];
 }
 
 export interface Workout {
