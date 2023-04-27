@@ -75,6 +75,7 @@
         flex-direction: column;
         align-items: center;
         padding-top: 4rem;
+        background-color: transparent;
     }
 
     .nav {
