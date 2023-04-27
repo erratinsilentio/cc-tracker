@@ -10,7 +10,7 @@ import { Paths } from '../../types/types';
             <p class="third">
                 <router-link :to="Paths.Login">Login</router-link>
                 to start or
-                <a href="https://www.amazon.com/Convict-Conditioning-Weakness-Using-Survival-Strength/dp/0938045768" target=”_blank”>read more</a>
+                <a href="https://www.reddit.com/r/bodyweightfitness/wiki/kb/recommended_routine/#wiki_first_pair" target=”_blank”>read more</a>
             </p>
     </article>
     </section>

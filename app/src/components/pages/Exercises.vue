@@ -89,7 +89,7 @@
     button {
         width: 100px;
         height: 40px;
-        outline: 1px solid #E3F5AB;
+        outline: 0.5px solid #E3F5AB;
         color: #E3F5AB;
         border-radius: 10px;
     }
