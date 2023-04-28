@@ -1,25 +1,25 @@
 <script setup lang="ts">
-import { supabase } from '../../utils/supabase';
+    import { ref } from 'vue';
+    import { supabase } from '../../utils/supabase';
 
-    async function signInWithEmail() {
-        const { data, error } = await supabase.auth.signInWithOtp({
-            email: 'example@email.com',
-            options: {
-            emailRedirectTo: 'https://example.com/welcome',
-            },
+    let email = ref("")
+
+
+    async function signInWithGoogle() {
+        const { data, error } = await supabase.auth.signInWithOAuth({
+            provider: 'google',
         })
-
-        if(error) console.error(error)
-
+        if(error) console.error(error);
         return data
-}
+    }
 </script>
 
 <template>
     <main class="section">
-        <form class="form" @submit="signInWithEmail">
+        <form class="form" @submit.prevent="signInWithGoogle" prevent>
             <p class="first">Login with one time magic link</p>
-            <input type="text" class="input">
+            <p class="first"></p>
+            <input type="text" class="input" v-model="email">
             <button type="submit" class="button">SEND</button>
         </form>
     </main>
