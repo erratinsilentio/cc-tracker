@@ -24,6 +24,19 @@ const router = createRouter({
       path: Paths.Workouts,
       name: "Workouts",
       component: Workouts,
+      beforeEnter: (to, from, next) => {
+        const store = useSessionStore();
+
+        supabase.auth.getSession().then(({ data: { session } }) => {
+          if (session) {
+            store.setSession(session);
+            next();
+            return;
+          } else {
+            next(Paths.Login);
+          }
+        });
+      },
     },
     {
       path: Paths.Login,
@@ -31,20 +44,6 @@ const router = createRouter({
       component: Login,
     },
   ],
-});
-
-router.beforeEach((to, from, next) => {
-  const store = useSessionStore();
-
-  supabase.auth.getSession().then(({ data: { session } }) => {
-    if (session) {
-      store.setSession(session);
-      next();
-    } else {
-      if (to.fullPath === Paths.Workouts) next(Paths.Login);
-      next(Paths.Login);
-    }
-  });
 });
 
 export default router;

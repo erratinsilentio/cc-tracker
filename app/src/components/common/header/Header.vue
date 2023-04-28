@@ -1,6 +1,37 @@
 <script setup lang="ts">
-import { Paths } from '../../../types/types.js';
+    import { onMounted, ref } from 'vue';
+    import { useSessionStore } from '../../../store/sessionStore';
+    import { Paths } from '../../../types/types.js';
+    import { supabase } from '../../../utils/supabase';
+    const store = useSessionStore()
+    const sessionData = ref(store.session);
+
+    onMounted(() => {
+        supabase.auth.getSession().then(({data: { session }}) => {
+            if(session) {
+                store.setSession(session)
+                sessionData.value = session
+                return
+            } else {
+                sessionData.value = null
+            }
+        })
+    })
+
+    async function logOut() {
+        let { error } = await supabase.auth.signOut();
+
+        if (error) {
+            console.error(error)
+            return;
+        }
+        console.log("logged out")
+
+        sessionData.value = null
+        store.setSession(null);
+    }
 </script>
+
 <template>
     <header class="header">
         <article class="logo">
@@ -10,7 +41,8 @@ import { Paths } from '../../../types/types.js';
         <router-link :to="Paths.Home">Home</router-link>
         <router-link :to="Paths.Exercises">Exercises</router-link>
         <router-link :to="Paths.Workouts">Workouts</router-link>
-        <router-link :to="Paths.Login">Login</router-link>
+        <router-link v-if="!sessionData" :to="Paths.Login">Login</router-link>
+        <router-link v-else :to="Paths.Home" @click="logOut">Logout</router-link>
     </article>
     </header>
 </template>

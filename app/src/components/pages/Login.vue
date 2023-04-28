@@ -1,27 +1,36 @@
 <script setup lang="ts">
     import { ref } from 'vue';
-    import { supabase } from '../../utils/supabase';
+import { useSessionStore } from '../../store/sessionStore';
+import { supabase } from '../../utils/supabase';
 
-    let email = ref("")
-
+    const store = useSessionStore();
+    const session = ref(store.session)
 
     async function signInWithGoogle() {
         const { data, error } = await supabase.auth.signInWithOAuth({
             provider: 'google',
         })
-        if(error) console.error(error);
+        if(error) {
+            console.error(error);
+            return
+        }
+        console.log(data)
+        console.log('logged in')
         return data
     }
 </script>
 
 <template>
     <main class="section">
-        <form class="form" @submit.prevent="signInWithGoogle" prevent>
-            <p class="first">Login with one time magic link</p>
-            <p class="first"></p>
-            <input type="text" class="input" v-model="email">
-            <button type="submit" class="button">SEND</button>
-        </form>
+            <button v-if="!session" @click="signInWithGoogle" class="article">
+                <p class="span">Login with </p>
+                <img class="google" src="google.svg" alt="Google" />
+            </button>
+
+            <button v-if="session" class="article styled">
+                Logout
+            </button>
+
     </main>
 </template>
 
@@ -39,34 +48,37 @@
         background-color: transparent;
     }
 
-    .form{
-        outline: 1px solid #0d9488;
-        border-radius: 10px;
-        padding: 30px;
-        width: 50vw;
-        height: 50vh;
+    .article {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
     }
 
-    .first{
-        color: #0d9488;
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .input {
-        width: 250px;
-        height: 25px;
+    .styled {
+        background-color: #E3F5AB;
+        color: #1b1b1b;
         border-radius: 10px;
-        border: 3px solid #0d9488;
-        margin-bottom: 1rem;
+        font-size: 3rem;
+        padding: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
 
-    .button {
-        background-color: #0d9488;
-        border-radius: 10px;
-        width: 100px;
-        height: 25px;
+    .styled:hover{
+        filter: brightness(110%);
     }
-</style>
+
+    .span {
+        font-size: 3rem;
+        margin-right: 1rem;
+        background: linear-gradient(to right, #0d9488 0%, #E3F5AB 33%, #E3F5AB 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .google {
+        width: 75px;
+        height: 75px;
+        filter: invert(72%) sepia(43%) saturate(249%) hue-rotate(34deg) brightness(109%) contrast(92%);
+    }
+    </style>
