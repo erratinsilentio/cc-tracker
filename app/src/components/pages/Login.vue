@@ -1,10 +1,5 @@
 <script setup lang="ts">
-    import { ref } from 'vue';
-import { useSessionStore } from '../../store/sessionStore';
-import { supabase } from '../../utils/supabase';
-
-    const store = useSessionStore();
-    const session = ref(store.session)
+    import { supabase } from '../../utils/supabase';
 
     async function signInWithGoogle() {
         const { data, error } = await supabase.auth.signInWithOAuth({
@@ -22,15 +17,10 @@ import { supabase } from '../../utils/supabase';
 
 <template>
     <main class="section">
-            <button v-if="!session" @click="signInWithGoogle" class="article">
-                <p class="span">Login with </p>
-                <img class="google" src="google.svg" alt="Google" />
-            </button>
-
-            <button v-if="session" class="article styled">
-                Logout
-            </button>
-
+        <button @click="signInWithGoogle" class="article">
+            <p class="span">Login with </p>
+            <img class="google" src="google.svg" alt="Google" />
+        </button>
     </main>
 </template>
 
