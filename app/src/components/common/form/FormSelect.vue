@@ -1,18 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { workoutStore } from '../../../store/workoutStore';
+import { findExerciseIndex } from "../../../utils/findByIndex"
+import { Exercise } from "../../../types/types";
 
+    interface Props {
+        name: Exercise;
+        options: string[]
+    }
 
-    const props = defineProps({
-        name: String,
-        options: Array<String>,
-    })
+    const props = defineProps<Props>()
 
-    const step = ref(props.options[0]);
+    const index = findExerciseIndex(workoutStore.exercises, props.name);
 
 </script>
 
 <template>
-    <select :name="props.name" class="select" v-model="step">
+    <select :name="props.name" class="select" v-model="workoutStore.exercises[index].level">
         <option v-for="option in options" :value="option" :key="option.toString()">{{ option }}</option>
     </select>
 </template>

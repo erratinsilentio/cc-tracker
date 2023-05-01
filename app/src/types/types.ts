@@ -17,14 +17,14 @@ export enum Exercise {
 }
 
 export interface WorkoutExercise {
-  id: string;
-  exercise: Exercise;
-  level: number;
-  repetitions: Exercise[];
+  id?: string;
+  name: Exercise;
+  level: string;
+  repetitions: number[];
 }
 
 export interface Workout {
-  id: string;
+  id?: string;
   dateCreated: string;
   dateDone: string;
   userId: string;
