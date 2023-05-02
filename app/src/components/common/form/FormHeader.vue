@@ -9,7 +9,7 @@ import { workoutStore } from "../../../store/workoutStore";
         <span class="title">New Workout</span>
         <div>
             <label class="series-label">Number of series: {{ workoutStore.series }}</label>
-            <input class="input series-input" name="series" type="range" min="1" max="4" v-model="workoutStore.series"/>
+            <input class="input series-input" name="series" type="range" min="1" max="3" v-model="workoutStore.series"/>
         </div>
     </section>
 </template>
@@ -18,7 +18,6 @@ import { workoutStore } from "../../../store/workoutStore";
 <style scoped>
 
     .top {
-        outline: 1px solid white;
         display: flex;
         flex-direction: row;
         justify-content: space-between;

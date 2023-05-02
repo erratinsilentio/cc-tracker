@@ -23,7 +23,7 @@ import { Exercise } from '../../../types/types';
                     <FullFormSelect :name="Exercise.AntiRotation" :options="steps.antiRotationSteps"/>
                     <FullFormSelect :name="Exercise.Extension" :options="steps.extensionSteps"/>
                 </div>
-                <button type="submit">SUBMIT</button>
+                <button type="submit" class="button">ADD</button>
             </section>
 </template>
 
@@ -31,16 +31,29 @@ import { Exercise } from '../../../types/types';
 <style scoped>
 
     .content {
-        outline: 1px solid white;
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
-        align-items: center;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding-top: 2rem;
     }
 
     .group {
         display: flex;
         flex-direction: column;
+    }
+
+    .button {
+        outline: 1px solid #E3F5AB;
+        color: #E3F5AB;
+        height: 150px;
+        width: 75px;
+        border-radius: 10px;
+    }
+
+    .button:hover{
+        background-color: #E3F5AB;
+        color: #1b1b1b;
     }
 
 </style>

@@ -35,7 +35,6 @@ import FormHeader from "../common/form/FormHeader.vue";
     .form{
         width: 80vw;
         height: 20vh;
-        outline: 1px solid white;
     }
 
 </style>
