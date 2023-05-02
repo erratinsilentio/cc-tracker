@@ -34,6 +34,7 @@ import { workoutStore } from "../../../store/workoutStore";
         color: #E3F5AB;
         font-size: 1.5rem;
         font-weight: 100;
+        margin-right: 1rem;
     }
 
     .series-input {

@@ -50,5 +50,11 @@ import { findExerciseIndex } from '../../../utils/findByIndex';
     }
     .input {
         margin-left: 0.5rem;
+        border-radius: 2px;
+        border: 1px solid #1b1b1b;
+    }
+
+    .input:focus{
+        outline: 1px solid #E3F5AB;
     }
 </style>

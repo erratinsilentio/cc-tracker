@@ -23,7 +23,9 @@ import { Exercise } from '../../../types/types';
                     <FullFormSelect :name="Exercise.AntiRotation" :options="steps.antiRotationSteps"/>
                     <FullFormSelect :name="Exercise.Extension" :options="steps.extensionSteps"/>
                 </div>
-                <button type="submit" class="button">ADD</button>
+                <div class="side">
+                    <button type="submit" class="button">ADD</button>
+                </div>
             </section>
 </template>
 
@@ -43,11 +45,17 @@ import { Exercise } from '../../../types/types';
         flex-direction: column;
     }
 
+    .side {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .button {
         outline: 1px solid #E3F5AB;
         color: #E3F5AB;
         height: 150px;
-        width: 75px;
+        width: 85px;
         border-radius: 10px;
     }
 
