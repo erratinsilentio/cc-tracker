@@ -1,4 +1,4 @@
-import { Workout, WorkoutFromDB } from "../types/types";
+import { ExerciseFromDB, Workout, WorkoutFromDB } from "../types/types";
 import { supabase } from "../utils/supabase";
 
 export const createNewWorkout = async (userId: string, workout: Workout) => {
@@ -53,10 +53,10 @@ export const getAllWorkouts = async (userId: string) => {
   }
 
   if (workouts?.length === 1) {
-    return workouts[0];
+    return workouts[0] as WorkoutFromDB;
   }
 
-  return workouts;
+  return workouts as WorkoutFromDB[];
 };
 
 export const getAllExercises = async (userId: string) => {
@@ -70,5 +70,5 @@ export const getAllExercises = async (userId: string) => {
     return;
   }
 
-  return exercises;
+  return exercises as ExerciseFromDB[];
 };

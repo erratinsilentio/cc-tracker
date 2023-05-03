@@ -1,29 +1,17 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
-import { getAllExercises, getAllWorkouts } from '../../../api/workoutApi';
-import { useSessionStore } from '../../../store/sessionStore';
-import { connectTogether } from "../../../utils/connectTogether"
+import { Workout } from '../../../types/types';
 
-const store = useSessionStore();
-const userId = store.session?.user.id || "";
-
-let allWorkouts = ref();
-let allExercises = ref();
-
-
-onMounted(() => {
-    getAllWorkouts(userId).then(data => allWorkouts.value = data)
-    getAllExercises(userId).then(data => allExercises.value = data)
-})
-
-let structuredWorkouts = computed(() => connectTogether(allWorkouts.value, allExercises.value))
+interface props {
+    workout: Workout;
+}
+const props = defineProps<props>()
 
 </script>
 
 <template>
 
 <div class="element">
-
+    <h1>{{ props.workout.series }}</h1>
 </div>
 
 </template>

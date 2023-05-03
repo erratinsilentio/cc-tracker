@@ -10,6 +10,7 @@ import {
   Pushups,
   Rows,
   Squats,
+  Workout,
 } from "../types/types";
 
 export const workoutStore = reactive({
