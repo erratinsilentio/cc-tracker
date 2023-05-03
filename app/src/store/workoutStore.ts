@@ -18,12 +18,12 @@ export const workoutStore = reactive({
     {
       name: Exercise.Pullups,
       level: Pullups.ONE,
-      repetitions: new Array().fill(0),
+      repetitions: new Array(),
     },
     {
       name: Exercise.Squats,
       level: Squats.ONE,
-      repetitions: new Array().fill(0),
+      repetitions: new Array(),
     },
     { name: Exercise.Dips, level: Dips.ONE, repetitions: new Array().fill(0) },
     {

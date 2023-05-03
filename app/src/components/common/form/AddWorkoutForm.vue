@@ -1,10 +1,16 @@
 <script setup lang="ts">
+import { useSessionStore } from '../../../store/sessionStore';
 import { workoutStore } from '../../../store/workoutStore';
 import FormContent from './FormContent.vue';
 import FormHeader from './FormHeader.vue';
+import { createNewWorkout, addExercises } from "../../../api/workoutApi"
+
+const store = useSessionStore();
+const userId = store.session?.user.id
 
 function handleSubmit() {
-        console.log(workoutStore.exercises)
+        // userId ? createNewWorkout(userId, workoutStore) : console.log('not logged in')
+        createNewWorkout(userId, workoutStore).then(data => addExercises(data?.id, workoutStore))
     }
     
 </script>
