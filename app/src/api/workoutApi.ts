@@ -16,12 +16,17 @@ export const createNewWorkout = async (userId: string, workout: Workout) => {
   return newWorkout as WorkoutFromDB;
 };
 
-export const addExercises = async (workoutId: string, workout: Workout) => {
+export const addExercises = async (
+  workoutId: string,
+  userId: string,
+  workout: Workout
+) => {
   const workoutExercises = workout.exercises.map((exercise) => {
     return {
       ...exercise,
       repetitions: [...exercise.repetitions],
       workoutId: workoutId,
+      userId: userId,
     };
   });
 
@@ -34,4 +39,36 @@ export const addExercises = async (workoutId: string, workout: Workout) => {
       console.log("success");
     })
     .catch((error) => console.error(error));
+};
+
+export const getAllWorkouts = async (userId: string) => {
+  let { data: workouts, error } = await supabase
+    .from("workouts")
+    .select()
+    .eq("userId", userId);
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  if (workouts?.length === 1) {
+    return workouts[0];
+  }
+
+  return workouts;
+};
+
+export const getAllExercises = async (userId: string) => {
+  let { data: exercises, error } = await supabase
+    .from("workoutExercises")
+    .select()
+    .eq("userId", userId);
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  return exercises;
 };

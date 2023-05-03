@@ -9,8 +9,7 @@ const store = useSessionStore();
 const userId = store.session?.user.id
 
 function handleSubmit() {
-        // userId ? createNewWorkout(userId, workoutStore) : console.log('not logged in')
-        createNewWorkout(userId, workoutStore).then(data => addExercises(data?.id, workoutStore))
+        userId ? createNewWorkout(userId, workoutStore).then(data => addExercises(data?.id, userId, workoutStore)) : console.log('not logged in')
     }
     
 </script>
@@ -26,5 +25,6 @@ function handleSubmit() {
 .form{
         width: 80vw;
         height: 20vh;
+        margin-bottom: 4rem;
     }
 </style>

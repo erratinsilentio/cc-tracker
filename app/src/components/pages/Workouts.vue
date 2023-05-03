@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import AddworkoutForm from "../common/form/AddWorkoutForm.vue"
+import WorkoutTable from "../common/table/WorkoutTable.vue";
 </script>
 
 <template>
     <main class="main">
         <AddworkoutForm></AddworkoutForm>
+        <WorkoutTable></WorkoutTable>
     </main>
 </template>
 
