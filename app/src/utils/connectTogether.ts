@@ -7,6 +7,7 @@ export const connectTogether = (
   if (!Array.isArray(workouts)) {
     return {
       series: workouts.series,
+      dateCreated: workouts.dateCreated,
       exercises: exercises.map((exercise) => {
         return {
           name: exercise.name,
@@ -19,6 +20,7 @@ export const connectTogether = (
     return workouts.map((workout) => {
       return {
         series: workout.series,
+        dateCreated: workout.dateCreated,
         exercises: exercises
           .filter((exercise) => exercise.workoutId === workout.id)
           .map((ex) => {

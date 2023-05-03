@@ -10,11 +10,12 @@ import {
   Pushups,
   Rows,
   Squats,
-  Workout,
 } from "../types/types";
+import { formatDate } from "../utils/formatDate";
 
 export const workoutStore = reactive({
   series: "1",
+  dateCreated: formatDate(Date.now()),
   exercises: [
     {
       name: Exercise.Pullups,

@@ -25,6 +25,7 @@ export interface WorkoutExercise {
 export interface Workout {
   series: string;
   exercises: WorkoutExercise[];
+  dateCreated?: string;
 }
 
 export interface WorkoutFromDB {

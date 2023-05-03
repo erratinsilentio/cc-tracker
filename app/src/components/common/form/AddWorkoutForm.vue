@@ -1,15 +1,18 @@
 <script setup lang="ts">
 import { useSessionStore } from '../../../store/sessionStore';
+import { trainlogStore } from '../../../store/trainlogStore'
 import { workoutStore } from '../../../store/workoutStore';
 import FormContent from './FormContent.vue';
 import FormHeader from './FormHeader.vue';
 import { createNewWorkout, addExercises } from "../../../api/workoutApi"
 
-const store = useSessionStore();
-const userId = store.session?.user.id
+const sessionStore = useSessionStore();
+const userId = sessionStore.session?.user.id
 
 function handleSubmit() {
-        userId ? createNewWorkout(userId, workoutStore).then(data => addExercises(data?.id, userId, workoutStore)) : console.log('not logged in')
+        createNewWorkout(userId, workoutStore).then(data => addExercises(data?.id, userId, workoutStore)).then(() => {
+            trainlogStore.addWorkout(workoutStore)
+        }).catch(error => console.error(error))
     }
     
 </script>
@@ -25,6 +28,6 @@ function handleSubmit() {
 .form{
         width: 80vw;
         height: 20vh;
-        margin-bottom: 4rem;
+        margin-bottom: 10rem;
     }
 </style>
