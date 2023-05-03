@@ -26,6 +26,7 @@ import { Exercise } from "../../../types/types";
         border: 1px solid #E3F5AB;
         border-radius: 10px;
         padding: 2px;
+        background-color: #ecfeff;
     }
 
 </style>

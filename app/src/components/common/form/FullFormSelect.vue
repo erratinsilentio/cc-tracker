@@ -20,7 +20,6 @@ import { findExerciseIndex } from '../../../utils/findByIndex';
 
     function handleChange() {
         workoutStore.exercises[exerciseIndex].repetitions = repetitions.value;
-        console.log(repetitions.value)
     }
 
 </script>
@@ -31,7 +30,7 @@ import { findExerciseIndex } from '../../../utils/findByIndex';
         <FormSelect :name="props.name" :options="options" />
         <div>
             <label class="label">Repetitions: </label>
-            <input v-for="(num, index) in repetitions" v-model="repetitions[index]" @input="handleChange" name="reps" type="number" min="0" max="30" class="input"/>
+            <input v-for="(index) in repetitions" v-model="repetitions[index]" @input="handleChange" name="reps" type="number" min="0" max="30" class="input"/>
         </div>
     </article>
 </template>
@@ -52,6 +51,7 @@ import { findExerciseIndex } from '../../../utils/findByIndex';
         margin-left: 0.5rem;
         border-radius: 2px;
         border: 1px solid #1b1b1b;
+        background-color: #ecfeff;
     }
 
     .input:focus{

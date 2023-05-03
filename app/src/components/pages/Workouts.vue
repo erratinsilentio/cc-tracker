@@ -1,21 +1,10 @@
 <script setup lang="ts">
-
-import { workoutStore } from "../../store/workoutStore";
-import FormContent from "../common/form/FormContent.vue";
-import FormHeader from "../common/form/FormHeader.vue";
-
-    function handleSubmit() {
-        console.log(workoutStore.exercises)
-    }
-
+import AddworkoutForm from "../common/form/AddWorkoutForm.vue"
 </script>
 
 <template>
     <main class="main">
-        <form class="form" @submit.prevent="handleSubmit">
-            <FormHeader></FormHeader>
-            <FormContent></FormContent>
-        </form>
+        <AddworkoutForm></AddworkoutForm>
     </main>
 </template>
 
@@ -30,11 +19,6 @@ import FormHeader from "../common/form/FormHeader.vue";
         justify-content: flex-start;
         padding-top: 4rem;
         background-color: transparent;
-    }
-
-    .form{
-        width: 80vw;
-        height: 20vh;
     }
 
 </style>
