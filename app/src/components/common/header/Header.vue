@@ -66,5 +66,10 @@
         color: #E3F5AB;
         margin-right: 3rem;
         font-weight: 100;
+        transition-duration: 0.3s;
+    }
+
+    a:hover{
+        text-decoration: underline;
     }
 </style>

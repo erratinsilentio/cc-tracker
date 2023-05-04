@@ -7,7 +7,7 @@ import FormHeader from './FormHeader.vue';
 import { createNewWorkout, addExercises } from "../../../api/workoutApi"
 
 const sessionStore = useSessionStore();
-const userId = sessionStore.session?.user.id
+const userId = sessionStore.session?.user.id || ""
 
 function handleSubmit() {
         createNewWorkout(userId, workoutStore).then(data => addExercises(data?.id, userId, workoutStore)).then(() => {
