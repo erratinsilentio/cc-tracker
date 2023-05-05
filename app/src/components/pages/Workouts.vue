@@ -14,7 +14,6 @@ import WorkoutTable from "../common/table/WorkoutTable.vue";
 <style scoped>
     .main {
         width: 100%;
-        height: 80vh;
         display: flex;
         flex-direction: column;
         align-items: center;

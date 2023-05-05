@@ -18,7 +18,7 @@ import Header from './components/common/header/Header.vue';
   }
 
   .page{
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     position: relative;
     z-index: 2;
