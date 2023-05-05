@@ -10,7 +10,7 @@ export const createNewWorkout = async (userId: string, workout: Workout) => {
 
   if (workoutError) {
     console.error(workoutError);
-    return;
+    throw new Error("Failed to create workout");
   }
 
   return newWorkout as WorkoutFromDB;
@@ -38,7 +38,10 @@ export const addExercises = async (
     .then(() => {
       console.log("success");
     })
-    .catch((error) => console.error(error));
+    .catch((error) => {
+      console.error(error);
+      throw new Error("Failed to create exercises");
+    });
 };
 
 export const getAllWorkouts = async (userId: string) => {
@@ -49,7 +52,7 @@ export const getAllWorkouts = async (userId: string) => {
 
   if (error) {
     console.error(error);
-    return;
+    throw new Error("Failed to retrieve workouts");
   }
 
   if (workouts?.length === 1) {
@@ -67,7 +70,7 @@ export const getAllExercises = async (userId: string) => {
 
   if (error) {
     console.error(error);
-    return;
+    throw new Error("Failed to retrieve exercises");
   }
 
   return exercises as ExerciseFromDB[];
