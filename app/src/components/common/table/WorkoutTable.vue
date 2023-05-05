@@ -35,7 +35,7 @@ onMounted(() => {
 <template>
     <section class="section">
         <SingleWorkout v-for="(workout, index) in slicedWorkouts" :workout="workout" :index="index"></SingleWorkout>
-        <div class="buttons">
+        <div v-if="trainlogStore.workouts.length>5" class="buttons">
             <button :disabled="currentPage===1" @click="currentPage--">prev</button>
             <button :disabled="currentPage===totalPages" @click="currentPage++">next</button>
         </div>
@@ -45,6 +45,7 @@ onMounted(() => {
 <style scoped>
 .section{
     margin-bottom: 4rem;
+    width: 80vw;
 }
 
 .buttons{
