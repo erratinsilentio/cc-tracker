@@ -9,9 +9,11 @@ import { createNewWorkout, addExercises } from "../../../api/workoutApi"
 const sessionStore = useSessionStore();
 const userId = sessionStore.session?.user.id || ""
 
+
 function handleSubmit() {
         createNewWorkout(userId, workoutStore).then(data => addExercises(data?.id, userId, workoutStore)).then(() => {
             trainlogStore.addWorkout(workoutStore)
+            // trainlogStore.submitRegister++
         }).catch(error => console.error(error))
     }
     
