@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import SingleWorkout from './SingleWorkout.vue';
-import { computed, onMounted, ref, watch, toRefs } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { getAllExercises, getAllWorkouts } from '../../../api/workoutApi';
 import { useSessionStore } from '../../../store/sessionStore';
 import { connectTogether } from "../../../utils/connectTogether"
 import { trainlogStore } from "../../../store/trainlogStore"
-import { Workout } from '../../../types/types';
 
 const sessionStore = useSessionStore();
 const userId = sessionStore.session?.user.id || "";
-// const { workouts } = toRefs(trainlogStore)
 
 const workoutsPerPage = 5
 const currentPage = ref(1)
@@ -41,8 +39,8 @@ onMounted(() => {
 
 <template>
     <section class="section">
-        <SingleWorkout v-if="trainlogStore.workouts.length" v-for="(workout, index) in slicedWorkouts" :workout="workout" :index="index"></SingleWorkout>
-        <SingleWorkout v-else v-if="trainlogStore.workouts.dateCreated" :workout="trainlogStore.workouts" :index="0"></SingleWorkout>
+        <SingleWorkout v-if="trainlogStore.workouts.length===1" :workout="trainlogStore.workouts[0]" :index="0"></SingleWorkout>
+        <SingleWorkout v-else v-for="(workout, index) in slicedWorkouts" :workout="workout" :index="index"></SingleWorkout>
         <div v-if="trainlogStore.workouts.length>5" class="buttons">
             <button :disabled="currentPage===1" @click="currentPage--" @keyup.left="currentPage--">prev</button>
             <button :disabled="currentPage===totalPages" @click="currentPage++" @keyup.right="currentPage++">next</button>

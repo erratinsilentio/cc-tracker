@@ -1,21 +1,25 @@
 import { ExerciseFromDB, Workout, WorkoutFromDB } from "../types/types";
 
-export const connectTogether = (
-  workouts: WorkoutFromDB[] | WorkoutFromDB,
-  exercises: ExerciseFromDB[]
-): Workout | Workout[] => {
+type ConnectFunction = (
+  a: WorkoutFromDB[] | WorkoutFromDB,
+  b: ExerciseFromDB[]
+) => Workout[];
+
+export const connectTogether: ConnectFunction = (workouts, exercises) => {
   if (!Array.isArray(workouts)) {
-    return {
-      series: workouts.series,
-      dateCreated: workouts.dateCreated,
-      exercises: exercises.map((exercise) => {
-        return {
-          name: exercise.name,
-          level: exercise.level,
-          repetitions: exercise.repetitions,
-        };
-      }),
-    };
+    return [
+      {
+        series: workouts.series,
+        dateCreated: workouts.dateCreated,
+        exercises: exercises.map((exercise) => {
+          return {
+            name: exercise.name,
+            level: exercise.level,
+            repetitions: exercise.repetitions,
+          };
+        }),
+      },
+    ];
   } else {
     return workouts.map((workout) => {
       return {
