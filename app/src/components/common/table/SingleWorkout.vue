@@ -14,7 +14,6 @@ const state = ref("closed");
 const toggleState = () => {
     state.value === "opened" ? state.value = "closed" : state.value = "opened"
 }
-
 </script>
 
 <template>
