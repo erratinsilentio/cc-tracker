@@ -8,7 +8,7 @@ import Header from './components/common/header/Header.vue';
         <Header></Header>
         <router-view></router-view>
       </section>
-      <img src="blur.svg" alt="blur"/>
+      <img src="/blur.svg" alt="blur"/>
   </main>
 </template>
 
