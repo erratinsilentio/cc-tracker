@@ -3,7 +3,7 @@ import { computed } from 'vue';
 import { Exercise } from "../../../types/types";
 import { workoutStore } from '../../../store/workoutStore';
 import { findExerciseIndex } from '../../../utils/findByIndex';
-import FormSelect from '../form/FullFormSelect.vue';
+import FormSelect from '../form/FormSelect.vue';
 
     interface Props {
             name: Exercise;

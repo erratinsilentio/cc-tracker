@@ -24,7 +24,7 @@ const router = createRouter({
       path: Paths.Workouts,
       name: "Workouts",
       component: Workouts,
-      beforeEnter: (to, from, next) => {
+      beforeEnter: (_to, _from, next) => {
         const store = useSessionStore();
 
         supabase.auth.getSession().then(({ data: { session } }) => {
