@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import FormSelect from './FormSelect.vue';
 import { Exercise } from "../../../types/types";
 import { workoutStore } from '../../../store/workoutStore';
 import { findExerciseIndex } from '../../../utils/findByIndex';
+import FormSelect from '../form/FullFormSelect.vue';
 
     interface Props {
             name: Exercise;
@@ -30,7 +30,7 @@ import { findExerciseIndex } from '../../../utils/findByIndex';
         <FormSelect :name="props.name" :options="options" />
         <div>
             <label class="label">Repetitions: </label>
-            <input v-for="(num, index) in repetitions" v-model="repetitions[index]" @input="handleChange" name="reps" type="number" min="0" max="30" class="input"/>
+            <input v-for="(_num, index) in repetitions" v-model="repetitions[index]" @input="handleChange" name="reps" type="number" min="0" max="30" class="input"/>
         </div>
     </article>
 </template>
