@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.21.0",
-    "@vueuse/core": "^10.1.0",
     "dotenv": "^16.0.3",
     "pinia": "^2.0.35",
     "vue": "^3.2.47",
