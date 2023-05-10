@@ -5,6 +5,7 @@ import { getAllExercises, getAllWorkouts } from '../../../api/workoutApi';
 import { useSessionStore } from '../../../store/sessionStore';
 import { connectTogether } from "../../../utils/connectTogether"
 import { trainlogStore } from "../../../store/trainlogStore"
+import { ExerciseFromDB, WorkoutFromDB } from '../../../types/types';
 
 const sessionStore = useSessionStore();
 const userId = sessionStore.session?.user.id || "";
@@ -30,7 +31,7 @@ const promises = [getAllWorkouts(userId), getAllExercises(userId)]
 
 onMounted(() => {
     Promise.all(promises).then(([workouts, exercises]) => {
-        trainlogStore.setTrainlog(connectTogether(workouts, exercises))
+        trainlogStore.setTrainlog(connectTogether(workouts as WorkoutFromDB[] | WorkoutFromDB, exercises as ExerciseFromDB[]))
     })
 })
 
