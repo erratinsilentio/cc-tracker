@@ -19,7 +19,7 @@
     <main class="section">
         <button @click="signInWithGoogle" class="article">
             <p class="span">Login with </p>
-            <img class="google" src="google.svg" alt="Google" />
+            <img class="google" src="/google.svg" alt="Google" />
         </button>
     </main>
 </template>
