@@ -6,6 +6,7 @@ interface Trainlog {
   submitRegister: number;
   setTrainlog: (x: Workout[]) => void;
   addWorkout: (x: Workout) => void;
+  reset: () => void;
 }
 
 export const trainlogStore: Trainlog = reactive({
@@ -15,4 +16,5 @@ export const trainlogStore: Trainlog = reactive({
   addWorkout: (workout) => {
     trainlogStore.workouts = [...trainlogStore.workouts, workout];
   },
+  reset: () => (trainlogStore.workouts = []),
 });

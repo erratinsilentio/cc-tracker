@@ -13,7 +13,7 @@ const userId = sessionStore.session?.user.id || ""
 function handleSubmit() {
         createNewWorkout(userId, workoutStore).then(data => addExercises(data?.id, userId, workoutStore)).then(() => {
             trainlogStore.addWorkout(workoutStore)
-            // trainlogStore.submitRegister++
+            trainlogStore.reset();
         }).catch(error => console.error(error))
     }
     
