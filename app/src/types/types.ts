@@ -16,6 +16,27 @@ export enum Exercise {
   Extension = "Extension",
 }
 
+export interface Step {
+  name:
+    | Pullups
+    | Squats
+    | Dips
+    | Extension
+    | Hinges
+    | Pushups
+    | Rows
+    | AntiExtension
+    | AntiRotation;
+  link: string;
+}
+
+export interface FullExercise {
+  id: number;
+  name: Exercise;
+  steps: Step[];
+  reps: string;
+}
+
 export interface WorkoutExercise {
   name: Exercise;
   level: string;
