@@ -1,4 +1,4 @@
-export const formatDate = (date: string | undefined) => {
+export const formatDate = (date: string | number | undefined) => {
   if (!date) return "-";
   const dateObj = new Date(date);
   const year = dateObj.getFullYear();
