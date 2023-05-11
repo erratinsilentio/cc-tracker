@@ -70,7 +70,7 @@
     button {
         width: 100px;
         height: 40px;
-        outline: 0.5px solid #E3F5AB;
+        border: 0.5px solid #E3F5AB;
         color: #E3F5AB;
         border-radius: 10px;
     }
@@ -86,7 +86,7 @@
     }
 
     .display {
-        outline: 1px solid #E3F5AB;
+        border: 1px solid #E3F5AB;
         width: 80vw;
         height: 50vh;
         border-radius: 10px;
