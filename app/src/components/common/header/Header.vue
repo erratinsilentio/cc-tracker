@@ -115,4 +115,31 @@
     }
     }
 
+    @media (min-width: 390px) and (max-width: 767px) {
+        .header{
+            height: 50px;
+            border-bottom: 0.1px solid #E3F5AB;
+        }
+        .logo{
+            padding-left: 10px;
+            padding-right: 10px;
+            font-weight: 300;
+            background-color: #E3F5AB;
+            color: #1b1b1b;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .navbutton{
+            font-size: 1rem;
+        }
+
+        a{
+            margin-right: 15px;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+    }
+
 </style>
