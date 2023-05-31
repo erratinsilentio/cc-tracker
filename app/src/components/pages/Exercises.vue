@@ -36,8 +36,8 @@
             <p class="line"></p>
             <li v-for="(step, index) in chosenExercise.steps" :id="step.name" class="item" @click="setChosenStep(step)">
                 <span>{{ index + 1 }}</span>
-                <span :class="{chosenStep: chosenStep.name === step.name}">{{ step.name }}</span>
-                <span>{{ chosenExercise.reps }}</span>
+                <span class="name" :class="{chosenStep: chosenStep.name === step.name}">{{ step.name }}</span>
+                <span class="reprange">{{ chosenExercise.reps }}</span>
             </li>
         </section>
         <section class="right">
@@ -138,5 +138,81 @@
         height: 0.5px;
         background-color: #E3F5AB;
         margin-bottom: 1rem;
+    }
+
+    .reprange{
+        min-width: 40px;
+        text-align: center;
+    }
+
+    .name{
+        text-align: center;
+    }
+
+    @media (min-width: 390px) and (max-width: 767px) {
+    .display{
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+    }
+    .nav {
+        width: 100%;
+        flex-wrap: wrap;
+        margin-bottom: 5rem;
+        gap: 5px;
+    }
+
+    .left {
+        width: 100%;
+        border-right: 0;
+    }
+
+    .item {
+
+        width: 85%;
+    }
+    .line {
+        width: 90%;
+        display: block;
+    }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+    .display{
+        width: 90%;
+    }
+    .nav {
+        width: 100%vw;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+
+    .left {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+        overflow: scroll;
+    }
+
+    .right {
+        width: 100%;
+    }
+
+    .frame {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+
+    .item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%;
+        margin-bottom: 10px;
+        gap: 10px;
+    }
     }
 </style>

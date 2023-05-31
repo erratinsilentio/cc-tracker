@@ -129,13 +129,14 @@
             height: 50px;
             line-height: 50px;
             text-align: center;
+            font-size: 1rem;
         }
         .navbutton{
             font-size: 1rem;
         }
 
         a{
-            margin-right: 15px;
+            margin-right: 18px;
         }
     }
 
