@@ -30,4 +30,17 @@ import Header from './components/common/header/Header.vue';
     left: 50%;
     z-index: 0;
   }
+
+  @media (min-width: 390px) and (max-width: 767px) {
+    img {
+    top: 20%;
+    left: 50%;
+  }
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    img {
+    top: 10%;
+    left: 40%;
+  }
+    }
 </style>
